@@ -4,9 +4,9 @@ import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.myProj.sample.model.DogBreed
-import com.myProj.sample.model.DogDatabase
+import com.myProj.sample.db.DogDatabase
 import com.myProj.sample.model.DogRepository
-import com.myProj.sample.model.DogsApiService
+import com.myProj.sample.network.DogsApiService
 import com.myProj.sample.utils.NotificationHelper
 import com.myProj.sample.utils.SharedPreferenceHelper
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +15,7 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
 import java.lang.NumberFormatException
+import java.net.UnknownHostException
 
 class ListViewModel(application: Application): BaseViewModel(application) {
 
@@ -27,6 +28,7 @@ class ListViewModel(application: Application): BaseViewModel(application) {
 
     val dogs = MutableLiveData<List<DogBreed>>()
     val dogsLoadError = MutableLiveData<Boolean>()
+    val networkError = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
 
     fun refresh() {
@@ -65,14 +67,23 @@ class ListViewModel(application: Application): BaseViewModel(application) {
     private fun fetchFromRemoteCoroutine() {
         loading.value = true
         launch {
-            val dogList = dogsRepository.getDogsCoroutine()
-            storeDogLocally(dogList)
-            Toast.makeText(getApplication(), "Dogs retrieved from endpoint", Toast.LENGTH_SHORT).show()
-            NotificationHelper(getApplication()).createNotification()
+            try{
+                val dogList = dogsRepository.getDogsCoroutine()
+                storeDogLocally(dogList)
+                Toast.makeText(getApplication(), "Dogs retrieved from endpoint", Toast.LENGTH_SHORT).show()
+                NotificationHelper(getApplication()).createNotification()
+            } catch (e: Exception) {
+                loading.value = false
+                dogsLoadError.value = true
+                e.printStackTrace()
+                if (e is UnknownHostException) {
+                    networkError.value = true
+                }
+            }
         }
     }
 
-    private fun fetchFromRemote() {
+    private fun fetchFromRemoteRx() {
         loading.value = true
         disposable.add(
             dogsService.getDogs()

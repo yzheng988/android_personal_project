@@ -40,10 +40,22 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.535" />
 
+            <TextView
+                android:id="@+id/networkError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Network error, check your connections"
+                app:layout_constraintTop_toBottomOf="@+id/listError"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ProgressBar
                 android:id="@+id/loadingView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:foregroundGravity="center_horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/dogsList"
                 app:layout_constraintStart_toStartOf="@+id/dogsList"

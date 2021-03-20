@@ -44,6 +44,7 @@ class ListFragment : Fragment() {
         refreshLayout.setOnRefreshListener {
             dogsList.visibility = View.GONE
             listError.visibility = View.GONE
+            networkError.visibility = View.GONE
             loadingView.visibility = View.VISIBLE
             viewModel.refreshBypassCache()
             refreshLayout.isRefreshing = false
@@ -64,11 +65,18 @@ class ListFragment : Fragment() {
             }
         })
 
+        viewModel.networkError.observe(this, Observer {isError ->
+            isError?.let {
+                networkError.visibility = if(it) View.VISIBLE else View.GONE
+            }
+        })
+
         viewModel.loading.observe(this, Observer {isLoading ->
             isLoading?.let {
                 loadingView.visibility = if(it) View.VISIBLE else View.GONE
                 if(it) {
                     listError.visibility = View.GONE
+                    networkError.visibility = View.GONE
                     dogsList.visibility = View.GONE
                 }
             }
