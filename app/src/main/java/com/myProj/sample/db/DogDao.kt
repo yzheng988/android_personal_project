@@ -1,8 +1,9 @@
-package com.myProj.sample.model
+package com.myProj.sample.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.myProj.sample.model.DogBreed
 
 @Dao
 interface DogDao {

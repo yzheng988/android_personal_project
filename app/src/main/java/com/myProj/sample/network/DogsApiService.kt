@@ -1,5 +1,6 @@
-package com.myProj.sample.model
+package com.myProj.sample.network
 
+import com.myProj.sample.model.DogBreed
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -1,9 +1,9 @@
 package com.myProj.sample.model
 
+import com.myProj.sample.network.DogsApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class DogRepository {
@@ -11,7 +11,6 @@ class DogRepository {
     private val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .client(addOkhttpClient())
         .build()
         .create(DogsApi::class.java)

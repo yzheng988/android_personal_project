@@ -1,9 +1,10 @@
-package com.myProj.sample.model
+package com.myProj.sample.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.myProj.sample.model.DogBreed
 
 @Database(entities = [DogBreed::class], version = 1)
 abstract class DogDatabase: RoomDatabase() {
@@ -15,8 +16,12 @@ abstract class DogDatabase: RoomDatabase() {
 
         private var LOCK = Any()
 
-        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
-            instance ?: buildDatabase(context).also {
+        operator fun invoke(context: Context) = instance
+            ?: synchronized(LOCK) {
+            instance
+                ?: buildDatabase(
+                    context
+                ).also {
                 instance = it
             }
         }
