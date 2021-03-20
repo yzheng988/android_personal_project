@@ -50,7 +50,7 @@ class ListViewModel(application: Application): BaseViewModel(application) {
     }
 
     fun refreshBypassCache() {
-        fetchFromRemote()
+        fetchFromRemoteCoroutine()
     }
 
     private fun fetchFromDataBase() {

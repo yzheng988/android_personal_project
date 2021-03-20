@@ -11,7 +11,6 @@ class DogRepository {
     private val api = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
-        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .client(addOkhttpClient())
         .build()
         .create(DogsApi::class.java)
