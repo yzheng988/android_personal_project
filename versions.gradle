@@ -1,0 +1,158 @@
+ext {
+    AndroidConfig = [
+            minSdk    : 24,
+            targetSdk : 30,
+            compileSdk: 30,
+            buildTools: "29.0.3",
+            java      : JavaVersion.VERSION_1_8
+    ]
+
+    GradlePlugins = [
+            apollo                  : '2.2.0',
+            appDynamics             : '20.12.1',
+            jacoco                  : '0.8.5',
+            screenshotTest          : '0.7.0',
+            gradle                  : '4.1.1',
+            crashlytics             : '2.2.0'
+    ]
+
+    Versions = [
+            launchdarkly               : '2.12.0',
+            kotlin                     : '1.4.21',
+            kotlinCoroutines           : '1.4.2',
+            preferenceKtx              : '1.1.1',
+
+            // intuit
+            appshell                   : '5.0.0',
+            intuitAnalytics            : '2.0.0-RELEASE',
+            reactNativeWidget          : '1.9.0',
+            coreAsset                  : '0.11.3',
+            coreUI                     : '2.6.7',
+            coreUtil                   : '2.6.7',
+            coreSandbox                : '2.6.7',
+            coreIntegration            : '2.5.4',
+            ixp                        : '5.1.4',
+            taskManager                : '0.0.23',
+            qbWallet                   : '1.13.1',
+            rfm                        : '1.0.5',
+            invoice                    : '5.0.1',
+            paymentsHub                : '4.7.5@aar',
+            takePayment                : '1.0.0@aar',
+            paymentOnboarding          : '0.12.1',
+            orderManagement            : '1.1.9',
+            banking                    : '1.2.0',
+            billingSubscriptions       : '1.2.0',
+            imageCapture               : '4.3.2-RELEASE',
+            pngClient                  : '1.5.0.0-RELEASE@aar',
+            trips                      : '2.1.11',
+            conversation               : '2.2.2',
+            fdxNativeLib               : '3.7.0',
+            modulus                    : '1.0.1',
+            documentManagement         : '3.1.0',
+
+            // google
+            gms                        : '4.3.3',
+            billing                    : '2.0.3',
+
+            // kotlin
+            coreKtx                    : '1.3.2',
+            kotlinJsonSerialization    : '1.0.0',
+
+            // androidx
+            activity                   : '1.1.0',
+            swipeRefresh               : '1.1.0',
+            recyclerView               : '1.1.0',
+            annotation                 : '1.1.0',
+            legacySupportLib           : '1.2.0',
+            appCompat                  : '1.2.0',
+            material                   : '1.2.1',
+            constraintLayout           : '2.0.4',
+            cardView                   : '1.0.0',
+            room                       : '2.2.6',
+            lifecycle                  : '2.2.0',
+            fragmentKtx                : '1.2.5',
+            broadcastManager           : '1.0.0',
+            sqlite                     : '2.1.0',
+            viewPager                  : '1.0.0',
+            lifecycleCompiler          : '1.1.1',
+            navigation                 : '2.3.2',
+
+
+            // network
+            okhttp                     : '4.9.0',
+            gson                       : '2.8.6',
+            retrofit                   : '2.9.0',
+            apollo                     : '2.2.0',
+            retrofitSerializationConv  : '0.8.0',
+
+            // rx
+            rxAndroid                  : '2.1.1',
+            rxJava2                    : '2.2.20',
+
+            // db
+            sqlCipher                  : '4.4.0',
+            room                       : '2.2.6',
+
+            // OII / AuthClient
+            authClient                 : '6.3.17',
+
+            playServicesBase           : '17.5.0',
+            playServicesAuth           : '19.0.0',
+            playServicesMaps           : '17.0.0',
+            playServicesIdentity       : '17.0.0',
+            playServicesLocation       : '17.1.0',
+            playServicesFirebaseMsg    : '21.0.1',
+            playServicesVision         : '20.1.3',
+            playServicesVisionImgLabel : '18.1.1',
+
+            // misc
+            stetho                     : '1.5.1',
+            glide                      : '4.11.0',
+            glideOkhttp3Integration    : '4.11.0',
+            lottie                     : '3.0.1',
+            firebaseCore               : '18.0.0',
+            firebaseIid                : '21.0.1',
+            firebaseML                 : '24.1.0',
+            firebaseAnalytics          : '18.0.0',
+            crashlytics                : '17.3.0',
+            fabricTools                : '1.31.2',
+            cardStack                  : '0.3.0',
+            appboySegmentIntegration   : '7.0.0',
+            eventBus                   : '3.2.0',
+            apacheCommons              : '3.11',
+            facebookSdk                : '7.1.0',
+            guava                      : '28.0-android',
+            disklrucache               : '2.0.2',
+
+            // analytics
+            kochavaTracker             : '3.7.1',
+            segment                    : '4.9.0',
+
+            // build
+            kotlinter                  : '3.0.2',
+            r8                         : '2.1.75',
+
+            userVoice                  : '1.2.10',
+
+            // libs
+            httpCore                   : '4.3',
+            signPost                   : '1.2.1.1',
+
+            // test
+            archCoreTesting            : '2.1.0',
+            runner                     : '1.3.0',
+            espresso                   : '3.3.0',
+            hamcrest                   : '2.2',
+            junit                      : '4.13.1',
+            mockito                    : '3.6.28',
+            mockitoKotlin              : '1.6.0',
+            powerMock                  : '2.0.9',
+            mockWebServer              : '4.9.0',
+            mockk                      : '1.10.4',
+            robolectric                : '4.3.1',
+            junitTestExt               : '1.1.2',
+            dexmaker                   : '1.4',
+            uiAutomator                : '2.2.0',
+            qbtestkitVersion           : '1.3.2'
+    ]
+}
