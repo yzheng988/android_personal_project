@@ -2,12 +2,15 @@ package com.myProj.sample.view
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.myProj.sample.R
+import com.myProj.sample.model.DogBreed
 import com.myProj.sample.viewmodel.ListViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
@@ -20,6 +23,7 @@ class ListFragment : Fragment() {
 
     private lateinit var viewModel: ListViewModel
     private val dogsListAdapter = DogsListAdapter(arrayListOf())
+    private val dogsListed = arrayListOf<DogBreed>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,6 +60,7 @@ class ListFragment : Fragment() {
         viewModel.dogs.observe(this, Observer {dogs ->
             dogs?.let {
                 dogsList.visibility = View.VISIBLE
+                dogsListed.addAll(dogs)
                 dogsListAdapter.updateDogList(dogs)
             }
         })
@@ -85,7 +90,35 @@ class ListFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.list_menu, menu)
+        inflater.inflate(R.menu.search_menu, menu)
+        val searchMenu = menu.findItem(R.id.action_search)
+        val searchView = searchMenu.actionView as SearchView
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { filter(it) }
+                return false
+            }
+        })
+    }
+
+    private fun filter(text: String) {
+        val filteredList = mutableListOf<DogBreed>()
+        for(dog in dogsListed) {
+            dog.dogBreed?.let {
+                if(it.toLowerCase().contains(text.toLowerCase())) {
+                    filteredList.add(dog)
+                }
+            }
+        }
+        if(filteredList.isEmpty()) {
+            Toast.makeText(context, "No data found..", Toast.LENGTH_SHORT).show()
+        } else {
+            dogsListAdapter.updateDogList(filteredList)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
