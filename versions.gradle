@@ -78,7 +78,7 @@ ext {
             navigation                 : '2.3.2',
             preference                 : '1.1.1',
             lifecycleextension         : '1.1.1',
-
+            supportversion             : '28.0.0',
 
             // network
             okhttp                     : '4.9.0',
@@ -93,7 +93,7 @@ ext {
 
             // db
             sqlCipher                  : '4.4.0',
-            room                       : '2.1.0-rc01',
+            room                       : '2.2.6',
 
             // OII / AuthClient
             authClient                 : '6.3.17',
