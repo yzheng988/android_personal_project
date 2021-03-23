@@ -1,6 +1,6 @@
 ext {
     AndroidConfig = [
-            minSdk    : 24,
+            minSdk    : 26,
             targetSdk : 30,
             compileSdk: 30,
             buildTools: "29.0.3",
@@ -65,7 +65,7 @@ ext {
             annotation                 : '1.1.0',
             legacySupportLib           : '1.2.0',
             appCompat                  : '1.2.0',
-            material                   : '1.2.1',
+            material                   : '1.1.0-alpha09',
             constraintLayout           : '2.0.4',
             cardView                   : '1.0.0',
             room                       : '2.2.6',
@@ -76,7 +76,9 @@ ext {
             viewPager                  : '1.0.0',
             lifecycleCompiler          : '1.1.1',
             navigation                 : '2.3.2',
-
+            preference                 : '1.1.1',
+            lifecycleextension         : '1.1.1',
+            supportversion             : '28.0.0',
 
             // network
             okhttp                     : '4.9.0',
@@ -143,7 +145,7 @@ ext {
             runner                     : '1.3.0',
             espresso                   : '3.3.0',
             hamcrest                   : '2.2',
-            junit                      : '4.13.1',
+            junit                      : '4.12',
             mockito                    : '3.6.28',
             mockitoKotlin              : '1.6.0',
             powerMock                  : '2.0.9',
