@@ -9,11 +9,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.yzheng.dogs"
-        minSdkVersion 16
-        targetSdkVersion 28
+        minSdkVersion 26
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -29,14 +29,7 @@ android {
     dataBinding.enabled = true
 }
 
-def lifeCycleExtensionVersion = '1.1.1'
 def supportVersion = '28.0.0'
-def retrofitVersion = '2.6.0'
-def glideVersion = '4.9.0'
-def rxJavaVersion = '2.1.1'
-def roomVersion = '2.1.0-rc01'
-def navVersion = '2.1.0-alpha05'
-def preferencesVersion = '1.0.0'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -47,37 +40,37 @@ dependencies {
 
     implementation "com.android.support:design:$supportVersion"
 
-    implementation "android.arch.lifecycle:extensions:$lifeCycleExtensionVersion"
+    implementation "android.arch.lifecycle:extensions:$Versions.lifecycleextension"
 
-    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-runtime:$Versions.room"
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
-    kapt "androidx.room:room-compiler:$roomVersion"
-    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$Versions.room"
+    implementation "androidx.room:room-ktx:$Versions.room"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1"
 
-    implementation "androidx.navigation:navigation-fragment-ktx:$navVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$Versions.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$Versions.navigation"
 
-    implementation 'com.google.android.material:material:1.1.0-alpha09'
+    implementation "com.google.android.material:material:$Versions.material"
 
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$Versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$Versions.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$Versions.retrofit"
 
-    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$Versions.rxAndroid"
+    implementation "io.reactivex.rxjava2:rxandroid:$Versions.rxAndroid"
 
-    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.github.bumptech.glide:glide:$Versions.glide"
 
     implementation "com.android.support:palette-v7:$supportVersion"
 
-    implementation "androidx.preference:preference:$preferencesVersion"
+    implementation "androidx.preference:preference:$Versions.preference"
 
-    implementation("com.squareup.okhttp3:logging-interceptor:3.9.0")
+    implementation "com.squareup.okhttp3:logging-interceptor:$Versions.okhttp"
 
 //    implementation "com.google.firebase:firebase-core:16.0.8"
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation "junit:junit:$Versions.junit"
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
